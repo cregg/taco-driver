@@ -13,6 +13,7 @@ GEM
     launchy (2.0.5)
       addressable (~> 2.2.6)
     mime-types (1.17.2)
+    newrelic_rpm (3.10.0.279)
     rack (1.4.0)
     rack-protection (1.2.0)
       rack
@@ -33,4 +34,5 @@ PLATFORMS
 DEPENDENCIES
   foreman
   heroku
+  newrelic_rpm
   sinatra
