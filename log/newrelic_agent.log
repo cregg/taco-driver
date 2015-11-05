@@ -1,0 +1,17 @@
+# Logfile created on 2015-11-05 10:54:25 -0800 by logger.rb/47272
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : Starting the New Relic agent in "development" environment.
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : Reading configuration from newrelic.yml (/Users/craigleclair/Projects/gw-pomodoro)
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] WARN : Agent is configured not to use SSL when communicating with New Relic's servers
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : Environment: development
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : No known dispatcher detected.
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : Application: pomodoro
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : Installing Net instrumentation
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : Installing Sinatra instrumentation
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : Installing deferred Rack instrumentation
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : Installing Rack::Builder middleware instrumentation
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : Finished instrumentation
+[11/05/15 10:54:25 -0800 Craigs-MacBook-Pro.local (29100)] INFO : Doing deferred dependency-detection before Rack startup
+[11/05/15 10:54:41 -0800 Craigs-MacBook-Pro.local (29100)] ERROR : Invalid license key, please contact support@newrelic.com
+[11/05/15 10:54:41 -0800 Craigs-MacBook-Pro.local (29100)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.

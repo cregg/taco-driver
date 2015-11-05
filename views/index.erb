@@ -2,67 +2,76 @@
 <html lang="">
 	<head>
 		<title>
-			Start Timer
+			I'm Taco Driver!
 		</title>
 	</head>
 	<body>
-		<h1>Start Your Timer!</h1>
-		<button id="start">Get Goat</button>
-		<button id="break">End Goat</button>
+		<h1>I'm Taco Driver! Drive Me!!!!!</h1>
+		<a href="#" id="timerLink" style="display: none" target="_blank">Hello</a> 
+		<button id="start">Start With GW Only</button>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="application/javascript">
 			console.log("Hello");
-			startData = {
-			"text" : "GGGGGOOOOOOOOOOOOOOOOAAAAAAAAAAATTTTTTTTTTTTTT WORK\n POMO BEGIN."
-			};
-
-			breakData = {
-				"text" : "The break is yours!\nEveryone take a shot!\nTake it!\nIf you want. Pet HotWheels."
-			};
-			function startMessage(){
+			var everyOne = ['Jay', 'Craig', 'Annie', 'Jakob', 'Alex', 'Kelly'];			
+			function startMessage(message){
 				$.ajax({
 					method : "post",
-					url : '<%= @url %>',
-					data : JSON.stringify(startData),
-					success : function (res){
-						console.log("Worked");
-						setTimeout(breakMessage, 1500000);
-					},
-					error : function(res){
-						console.log(resp.responseText);
-					}
-				})
-			}
-			function breakMessage(){
-				$.ajax({
-					method : "post",
-					url : '<%= @url %>',
-					data : JSON.stringify(breakData),
-					success : function (resp){
-						console.log("Worked");
-						setTimeout(startMessage, 300000);
-					}
-				})
-			}	
-			function sendMessge(jsonText){
-				$.ajax({
-					method : "post",
-					url : '<%= @url %>',
-					data : JSON.stringify(jsonText),
+					url : '<%= @url =>',
+					data : JSON.stringify(message),
 					success : function (res){
 						console.log("Worked");
 					},
 					error : function(res){
 						console.log(resp.responseText);
 					}
-				})	
+				})
 			}
+			function initText(manager, cWhip, keeper){
+				var text = "Hello. I'm Driver Taco. The timer has been started! \n";
+				text += "<https://getworkers.atlassian.net/wiki/display/CORE/How+to+do+a+daily+check-in | Here's the check in doc>\n";
+				text += "*I've already decided the roles!*\n";
+				text += "*Driver:* Annie\n";
+				text += "*Manager:* " + manager + "\n";
+				text += "*Calandar Whip:* " + cWhip + "\n";
+				text += "*TimeKeeper:* " + keeper + "\n";
+				text += "*Thank Teller:* Craig.";
+				return text;
+			}
+			function getRandomInt(min, max) {
+  				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
+			
 			$(document).ready(function(){
 				$("#start").click(function () {
-					startMessage();
-				});
-				$("#break").click(function () {
-					breakMessage();
+					var getWorkers = ['Jay', 'Craig', 'Annie', 'Jakob'];
+					var calendarIndex = getRandomInt(0, 3);
+					var calendarWhip = getWorkers[calendarIndex];
+					getWorkers.splice(calendarIndex, 1);
+					getWorkers.push('Alex');
+					getWorkers.push('Kelly');
+					var timerIndex = getRandomInt(0,4);
+					var timer = getWorkers[timerIndex];
+					getWorkers.splice(timerIndex, 1);
+					var craigIndex = getWorkers.indexOf('Craig');
+					var managerIndex = getRandomInt(0,3);
+					if(craigIndex > -1){
+						getWorkers.splice(craigIndex, 1);
+						managerIndex = getRandomInt(0,2);
+					}
+					var manager = getWorkers[managerIndex];
+					var startCheckIn = {
+						"text" : initText(manager, calendarWhip, timer)
+					};
+					startMessage(startCheckIn);
+					var date = new Date();
+					var minutes = date.getMinutes();
+					var extraMinutes = 60 - minutes;
+					var timerMinutes = 3;
+					if(extraMinutes > 0){
+						timerMinutes += extraMinutes;
+					}
+					window.open("http://google.ca/search?q=" + timerMinutes + "+minute+timer", '_blank');
+					window.open("https://plus.google.com/hangouts/_/getworkers.ca/daily-check-in", '_blank');
 				});
 			})
 		</script>		
