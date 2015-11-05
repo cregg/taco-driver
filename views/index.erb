@@ -16,12 +16,12 @@
 			function startMessage(message){
 				$.ajax({
 					method : "post",
-					url : '<%= @url =>',
+					url : '<%= @url %>',
 					data : JSON.stringify(message),
 					success : function (res){
 						console.log("Worked");
 					},
-					error : function(res){
+					error : function(resp){
 						console.log(resp.responseText);
 					}
 				})
