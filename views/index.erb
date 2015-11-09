@@ -8,6 +8,8 @@
 	<body>
 		<h1>I'm Taco Driver! Drive Me!!!!!</h1>
 		<a href="#" id="timerLink" style="display: none" target="_blank">Hello</a> 
+		<label>How much time to put on timer.</label>
+		<input type="text" id="timerElement" />
 		<button id="start">Start With GW Only</button>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="application/javascript">
@@ -26,7 +28,7 @@
 					}
 				})
 			}
-			function initText(manager, cWhip, keeper){
+			function initText1(manager, cWhip, keeper){
 				var text = "Hello. I'm Driver Taco. The timer has been started! \n";
 				text += "<https://getworkers.atlassian.net/wiki/display/CORE/How+to+do+a+daily+check-in | Here's the check in doc>\n";
 				text += "*I've already decided the roles!*\n";
@@ -35,6 +37,15 @@
 				text += "*Calandar Whip:* " + cWhip + "\n";
 				text += "*TimeKeeper:* " + keeper + "\n";
 				text += "*Thank Teller:* Craig.";
+				return text;
+			}
+			function initText2(driver, teller){
+				var text = "Hello. I'm Driver Taco. The timer has been started! \n";
+				text += "<https://getworkers.atlassian.net/wiki/display/CORE/How+to+do+a+daily+check-in | Here's the check in doc>\n";
+				text += "*I've decided some roles!*\n";
+				text += "*Driver:* " + driver + "\n";
+				text += "*Thank Teller:* " + teller + "\n";
+				text += "Manager, Time Keeper, and Calendar Whip will be decided by the driver during the check in."
 				return text;
 			}
 			function getRandomInt(min, max) {
@@ -60,15 +71,18 @@
 					}
 					var manager = getWorkers[managerIndex];
 					var startCheckIn = {
-						"text" : initText(manager, calendarWhip, timer)
+						"text" : initText2("Annie", "Craig")
 					};
 					startMessage(startCheckIn);
-					var date = new Date();
-					var minutes = date.getMinutes();
-					var extraMinutes = 60 - minutes;
-					var timerMinutes = 3;
-					if(extraMinutes > 0){
-						timerMinutes += extraMinutes;
+					var timerMinutes = document.getElementById('timerElement');
+					if(timerMinutes === ""){
+						var date = new Date();
+						var minutes = date.getMinutes();
+						var extraMinutes = 60 - minutes;
+					 	timerMinutes = 3;
+						if(extraMinutes > 0){
+							timerMinutes += extraMinutes;
+						}
 					}
 					window.open("http://google.ca/search?q=" + timerMinutes + "+minute+timer", '_blank');
 					window.open("https://plus.google.com/hangouts/_/getworkers.ca/daily-check-in", '_blank');
