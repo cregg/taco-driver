@@ -40,7 +40,8 @@
 				return text;
 			}
 			function initText2(driver, teller){
-				var text = "Hello. I'm Driver Taco. The timer has been started! \n";
+				var timeUntilTimerStarts = parseInt(document.getElementById('timerElement').value) - 3;
+				var text = "Hello. I'm Driver Taco. The timer will start in " + timeUntilTimerStarts + " minutes\n";
 				text += "<https://getworkers.atlassian.net/wiki/display/CORE/How+to+do+a+daily+check-in | Here's the check in doc>\n";
 				text += "*I've decided some roles!*\n";
 				text += "*Driver:* " + driver + "\n";
