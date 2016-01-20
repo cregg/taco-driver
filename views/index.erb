@@ -8,6 +8,9 @@
 	<body>
 		<h1>I'm Taco Driver! Drive Me!!!!!</h1>
 		<a href="#" id="timerLink" style="display: none" target="_blank">Hello</a> 
+		<label>Who's your name is?</label>
+		<input type="text" id="driverName"/>
+		<br/>
 		<label>How much time to put on timer.</label>
 		<input type="text" id="timerElement" />
 		<button id="start">Start With GW Only</button>
@@ -32,14 +35,14 @@
 				var text = "Hello. I'm Driver Taco. The timer has been started! \n";
 				text += "<https://getworkers.atlassian.net/wiki/display/CORE/How+to+do+a+daily+check-in | Here's the check in doc>\n";
 				text += "*I've already decided the roles!*\n";
-				text += "*Driver:* Annie\n";
+				text += "*Driver:* " + $('#driverName').val() + "\n";
 				text += "*Manager:* " + manager + "\n";
 				text += "*Calandar Whip:* " + cWhip + "\n";
 				text += "*TimeKeeper:* " + keeper + "\n";
 				text += "*Thank Teller:* Craig.";
 				return text;
 			}
-			function initText2(driver, teller){
+			function initText2(driver){
 				var timeUntilTimerStarts = parseInt(document.getElementById('timerElement').value) - 3;
 				var text = "Hello. I'm Driver Taco. Come join me in the hangout!\n";
 				text += "The timer will start in " + timeUntilTimerStarts + " minutes\n";
@@ -72,7 +75,7 @@
 					}
 					var manager = getWorkers[managerIndex];
 					var startCheckIn = {
-						"text" : initText2("Annie", "Craig")
+						"text" : initText2($('#driverName').val())
 					};
 					startMessage(startCheckIn);
 					var timerMinutes = document.getElementById('timerElement').value;
